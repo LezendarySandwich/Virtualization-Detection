@@ -5,3 +5,6 @@ def detect():
     is_vm = os.stat("tmp.txt").st_size != 0
     os.system("rm tmp.txt")
     return is_vm
+
+if detect(): print("vm")
+else : print("no vm")

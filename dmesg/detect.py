@@ -6,3 +6,5 @@ def detect():
     os.system("rm tmp.txt")
     return is_vm
     
+if detect(): print("gotcha u vm ")
+else: print("no vm :/")

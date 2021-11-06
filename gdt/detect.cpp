@@ -28,7 +28,7 @@ int main()
 {
     gdt_info g;
     __asm__ volatile ("sgdt %0" : "=m" (g.size) );
-    //cout << "gdt base: \t" << hex << gdt_info.base << std::endl;
+    cout << "gdt base: \t" << hex << g.base << std::endl;
     detect(extract_base(g));
     return 0;
 }

@@ -21,7 +21,13 @@ def detect_aws_xen():
 def detect():
     return  detect_vmware() or detect_virtual_box() or detect_aws_xen()
 
-if detect():
-    print("me vm uwu")
-else:
-    print("me no vm :/")
+def output_string(a):
+    if a:
+        return "Yes"
+    return "No"
+
+print("Virtualization Detected: ", sep='', end='')
+
+is_under_vm = detect()
+
+print(output_string(is_under_vm))

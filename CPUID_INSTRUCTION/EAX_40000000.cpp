@@ -23,7 +23,7 @@ namespace vm_string_lst {
     const vector<int> brand_list{
         0x4D566572, 
         0x65726177,
-        0x564b4d56
+        0x564b4d56,
     };
 }
 

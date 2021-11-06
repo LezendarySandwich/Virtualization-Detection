@@ -30,6 +30,11 @@ namespace os {
         }
     }   
 
+    void install_dependecies() {
+        system("bash install_dependecies.bash");
+        std::cout << std::endl;
+    }
+
 }
 
 namespace recursive_iterate {
@@ -38,7 +43,7 @@ namespace recursive_iterate {
         ".vscode",
         ".git",
         "CPUID_INSTRUCTION_WIN",
-        "is_virtualized"
+        "Neo"
     };
 
     std::vector<std::string> __ignore_ext {
@@ -65,6 +70,9 @@ namespace recursive_iterate {
 }
 
 int main() {
+
+    os::install_dependecies();
+
     fs::path base_path(".");
 
     for (const fs::path& dirEntry : fs::recursive_directory_iterator(base_path)) {

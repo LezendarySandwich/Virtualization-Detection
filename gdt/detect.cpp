@@ -10,19 +10,12 @@ typedef struct gdt_info
     uintptr_t base;
 } gdt_info;
 
-bool detect_vmware(string base){
-    return (base.size()>=2&&base[0]=='f'&&base[1]=='f');
-}
-
-bool detect_wsl(string base){
+bool detect(string base){
+    bool is_vm = (base.size()>=2&&base[0]=='f'&&base[1]=='f');
     reverse(base.begin(), base.end());
-    return (base.size()>=4&&base[0]=='0'&&base[1]=='0'&&base[2]=='e'&&base[3]=='f');
-}
-
-void detect(string base){
-    if(detect_vmware(base))cout<<"Detected virtualisation - VMWare\n";
-    else if(detect_wsl(base))cout<<"Detected WSL\n";
-}
+    is_vm|= (base.size()>=4&&base[0]=='0'&&base[1]=='0'&&base[2]=='e'&&base[3]=='f');
+    return is_vm;
+}    
 
 string extract_base(gdt_info g){
     stringstream ss;
@@ -37,6 +30,5 @@ int main()
     __asm__ volatile ("sgdt %0" : "=m" (g.size) );
     //cout << "gdt base: \t" << hex << gdt_info.base << std::endl;
     detect(extract_base(g));
-
     return 0;
 }

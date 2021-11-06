@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <cstdio>
 #include <cinttypes>
+
 using namespace std;
 
 typedef struct gdt_info
@@ -36,6 +37,6 @@ int main()
     
     bool is_under_vm = detect(extract_base(g));
     cout << "Virtualization Detected: " << output_string(is_under_vm);
-    
+
     return 0;
 }

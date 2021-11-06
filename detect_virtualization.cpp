@@ -31,8 +31,8 @@ namespace os {
     }   
 
     void install_dependecies() {
-        system("bash install_dependecies.bash");
-        std::cout << std::endl;
+        system("bash install_dependecies.bash > /dev/null");
+        std::cout << std::endl << "Dependencies Installed" << std::endl << std::endl;
     }
 
 }

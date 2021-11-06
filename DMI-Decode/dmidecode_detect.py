@@ -9,7 +9,11 @@ def detect_vmware():
     return  ( manufacturer.find(vmware)+1) or ( serial_number.find(vmware)+1) or ( model.find(vmware)+1 )
 
 def detect_virtual_box():
-    return False
+    manufacturer =  dmi.manufacturer().lower()
+    model = dmi.model().lower()
+    serial_number =  dmi.serial_number().lower()
+    virtual_box= 'virtualbox'
+    return (manufacturer.find(virtual_box)+1) or (serial_number.find(virtual_box)+1) or (model.find(virtual_box)+1)
 
 def detect_aws_xen():
     manufacturer= dmi.manufacturer().lower() 

@@ -50,6 +50,7 @@ namespace recursive_iterate {
         ".cpp",
         ".md",
         ".json",
+        ".bash",
         ".txt"
     };
 

@@ -22,6 +22,13 @@ def detect_aws_xen():
     xen = "xen"
     return (manufacturer.find(xen)+1) or (serial_number.find(xen)+1) or (model.find(xen)+1)
 
+def detect_google_cloud():
+    manufacturer= dmi.manufacturer().lower() 
+    model = dmi.model().lower() 
+    serial_number = dmi.serial_number().lower()
+    gc='googlecloud'
+    return (manufacturer.find(gc)+1) or (serial_number.find(gc)+1) or (model.find(gc)+1)
+
 def detect():
     return  detect_vmware() or detect_virtual_box() or detect_aws_xen()
 

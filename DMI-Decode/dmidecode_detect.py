@@ -30,7 +30,7 @@ def detect_google_cloud():
     return (manufacturer.find(gc)+1) or (serial_number.find(gc)+1) or (model.find(gc)+1)
 
 def detect():
-    return  detect_vmware() or detect_virtual_box() or detect_aws_xen()
+    return  detect_vmware() or detect_virtual_box() or detect_aws_xen() or detect_google_cloud()
 
 def output_string(a):
     if a:
